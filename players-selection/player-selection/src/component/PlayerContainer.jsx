@@ -21,10 +21,13 @@ export default function PlayerContainer() {
         dispatch(playerDetails(player))
     }
 
+    useEffect(() => {
+    }, [playerList]);
+
     const renderPlayer = () => {
         return playerList.map((player)=>{
                 return(
-                <li key={player.name} >
+                <li key={player.id} >
                     {player.name} &nbsp; &nbsp;  
                     <button 
                     onClick={e=> {

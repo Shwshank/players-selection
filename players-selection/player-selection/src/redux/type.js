@@ -10,3 +10,5 @@ export const REMOVE_PLAYER_FROM_TEAM = 'REMOVE_PLAYER_FROM_TEAM'
 //Detail TYPE
 export const GET_PLAYERS = 'GET_PLAYERS'
 export const CLEAR_DETAILS = 'CLEAR_DETAILS'
+
+

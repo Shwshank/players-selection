@@ -5,7 +5,7 @@ const initialState = {
 }
 
 const teamReducer = (state=initialState, action) => {
-    console.log(action.payload)
+    
     switch (action.type) {
         case ADD_PLAYER_IN_TEAM: return{
             ...state,

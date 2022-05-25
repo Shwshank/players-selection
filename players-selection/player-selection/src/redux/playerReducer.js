@@ -1,11 +1,10 @@
-import { GET_PLAYERS, REMOVE_PLAYER } from "./type"
+import { ADD_PLAYER, GET_PLAYERS, REMOVE_PLAYER } from "./type"
 
 const initialState = {
     players: []
 }
 
 const playerReducer = (state = initialState, action) => {
-
     switch(action.type){
 
         case GET_PLAYERS: return {
@@ -13,6 +12,12 @@ const playerReducer = (state = initialState, action) => {
             players: [...action.payload]
         }
 
+        case ADD_PLAYER: {
+            return{
+                ...state,
+                players: [...state.players, action.payload]
+            }
+        }
 
         case REMOVE_PLAYER: {
 

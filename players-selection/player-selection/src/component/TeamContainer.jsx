@@ -1,21 +1,17 @@
 import React, {useEffect} from 'react'
 import { useSelector, useDispatch } from "react-redux";
-import { playerDetails } from '../redux/action';
+import { playerDetails, addPlayerInList, removePlayerFromTeam } from '../redux/action';
 
 
 export default function TeamContainer() {
 
     const team = useSelector( state=> state.team.team )
 
-    useEffect(()=>{
-        console.log(team)
-    },[team])
-
     const dispatch = useDispatch()
 
-    const removePlayerFromTeam = (player) => {
-        // dispatch( removePlayerFromTeam({id: player.id}) )
-        // dispatch( addPlayerToList(player) )
+    const removePlayerTeam = (player) => {
+        dispatch( removePlayerFromTeam({id: player.id}) )
+        dispatch( addPlayerInList(player) )
     }
 
     const sendPlayerDetaild = (player) => {
@@ -25,12 +21,12 @@ export default function TeamContainer() {
     const renderTeam = () => {
         return team.map((player)=>{
             return(
-            <li key={player.name} >
+            <li key={player.id} >
                 {player.name} &nbsp; &nbsp;  
                 <button 
                 onClick={e=> {
                     e.preventDefault()
-                    removePlayerFromTeam(player)                        
+                    removePlayerTeam(player)                        
                 }}
                  > - </button>
                 &nbsp; &nbsp;  

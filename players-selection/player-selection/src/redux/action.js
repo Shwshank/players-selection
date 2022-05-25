@@ -1,4 +1,4 @@
-import { PLAYER_DETAILS, ADD_PLAYER, REMOVE_PLAYER, GET_PLAYERS } from "./type";
+import { PLAYER_DETAILS, ADD_PLAYER, REMOVE_PLAYER, GET_PLAYERS, CLEAR_DETAILS } from "./type";
 
 export const getPlayers = () => {
     return (dispatch) => {
@@ -23,3 +23,16 @@ export const getPlayers = () => {
         payload: data,
       }
   }
+
+export function playerDetails(playerObj) {
+    return {
+        type: PLAYER_DETAILS,
+        payload: {...playerObj}
+    }
+}
+
+export function ClearDetails() {
+    return {
+        type: CLEAR_DETAILS
+    }
+}

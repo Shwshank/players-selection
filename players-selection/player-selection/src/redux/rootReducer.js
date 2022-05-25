@@ -1,9 +1,11 @@
 import { combineReducers } from "redux";
+import detailReducer from "./detailReducer";
 import playerReducer from "./playerReducer";
 
 const rootReducer = combineReducers(
     {
-        player: playerReducer
+        player: playerReducer,
+        details: detailReducer
     }
 )
 

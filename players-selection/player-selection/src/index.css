@@ -23,6 +23,7 @@ code {
   width: 48%;
   height: 800px;
   text-align: center;
+  overflow: auto;
 }
 .playerDetails{
   width: 500px;

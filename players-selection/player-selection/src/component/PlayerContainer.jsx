@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react'
 import { useSelector, useDispatch } from "react-redux";
-import { getPlayers } from '../redux/action';
+import { getPlayers, playerDetails } from '../redux/action';
 
 export default function PlayerContainer() {
     
@@ -16,6 +16,29 @@ export default function PlayerContainer() {
         console.log(playerList)
     }, [playerList])
 
+    const sendPlayerDetaild = (player) => {
+        dispatch(playerDetails(player))
+    }
+
+    const renderPlayer = () => {
+        return playerList.map((player)=>{
+                return(
+                <li key={player.name} >
+                    {player.name} &nbsp; &nbsp;  
+                    <button> + </button>
+                    &nbsp; &nbsp;  
+                    <button onClick={ e =>{ 
+                        e.preventDefault()
+                        sendPlayerDetaild(player)}}>
+                        Details </button>
+                    <br/>
+                    <br/>
+                </li>
+                )
+            })
+            
+    }
+
   return (
     <div className='childContainer1' >
 
@@ -23,14 +46,7 @@ export default function PlayerContainer() {
         <hr/>
 
         <ul>
-            <li>
-                player 1 &nbsp; &nbsp;  
-                <button> + </button>
-                &nbsp; &nbsp;  
-                <button> Details </button>
-            </li>
-            <br />
-            
+            {renderPlayer()}            
         </ul>
 
     </div>

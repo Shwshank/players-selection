@@ -8,10 +8,6 @@ export default function PlayerDetail() {
 
     const dispatch = useDispatch()
 
-    useEffect(()=>{
-        console.log(playerDetails)
-    },[playerDetails])
-
     const clearDetails = () => {
         dispatch(ClearDetails())
     }

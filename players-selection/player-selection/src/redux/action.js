@@ -1,4 +1,4 @@
-import { PLAYER_DETAILS, ADD_PLAYER, REMOVE_PLAYER, GET_PLAYERS, CLEAR_DETAILS } from "./type";
+import { PLAYER_DETAILS, ADD_PLAYER, REMOVE_PLAYER, GET_PLAYERS, CLEAR_DETAILS, ADD_PLAYER_IN_TEAM } from "./type";
 
 export const getPlayers = () => {
     return (dispatch) => {
@@ -34,5 +34,19 @@ export function playerDetails(playerObj) {
 export function ClearDetails() {
     return {
         type: CLEAR_DETAILS
+    }
+}
+export function addPlayer(playerObj) {
+
+    return {
+        type: ADD_PLAYER_IN_TEAM,
+        payload: playerObj
+    }
+}
+
+export function removePlayerFromPlayerList(id) {
+    return {
+        type: REMOVE_PLAYER,
+        payload: id
     }
 }
